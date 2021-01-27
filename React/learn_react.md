@@ -56,20 +56,20 @@ yarn start
 
 - 不要なファイルを削除する
 
-*2021/01/25 終了*
+_2021/01/25 終了_
 
 ---
-*2021/01/26開始*
 
-# Reactの基礎
+_2021/01/26 開始_
+
+# React の基礎
 
 ## JSX
 
 - 式を埋め込むには、`{}`で囲む
-  
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 /* 1. JavaScript 式を埋め込む */
 function add(a, b) {
@@ -77,7 +77,7 @@ function add(a, b) {
 }
 
 function App() {
-  const message = 'React';
+  const message = "React";
 
   return (
     <div>
@@ -90,26 +90,25 @@ function App() {
 export default App;
 ```
 
-## JSXのルール
+## JSX のルール
 
-- ルート要素は1つだけ
+- ルート要素は 1 つだけ
   - タグが深くならないように、`<></>`フラグメントを使用する
 - 全てのタグを閉じる
   - `<br>`などの閉じていないタグが存在するとエラー
-- classなどの属性は利用できず、代替の属性を利用する必要がある
+- class などの属性は利用できず、代替の属性を利用する必要がある
   - `class` → `className`を使う
 
 ## コンポーネント
 
 - 関数宣言やアロー関数で定義する
-- コンポーネント名の最初は必ず大文字にする (hello不可)
+- コンポーネント名の最初は必ず大文字にする (hello 不可)
 - 定義されたコンポーネントは、`<Hello />`のように使用する
 
 ```jsx
 function Hello() {
   return <h1>Hello React</h1>;
 }
-
 
 function App() {
   return (
@@ -122,14 +121,13 @@ function App() {
 
 ### props
 
-
 ```jsx
 //props.name を受け突る
 function Hello({ name }) {
   return <p>Hello, {name}</p>;
 }
 function App() {
-  const message = 'Angular';
+  const message = "Angular";
   return (
     <div>
       {/* "React" を Props として渡す */}
@@ -143,16 +141,20 @@ function App() {
 }
 ```
 
-- propsをまとめて渡す
+- props をまとめて渡す
 
 ```jsx
 function Hello({ firstName, lastName }) {
-  return <p>Hello, {firstName} {lastName}</p>;
+  return (
+    <p>
+      Hello, {firstName} {lastName}
+    </p>
+  );
 }
 function App() {
   const data = {
-    firstName: 'John',
-    lastName: 'Doe'
+    firstName: "John",
+    lastName: "Doe",
   };
   return (
     <div>
@@ -164,12 +166,12 @@ function App() {
 
 ## 条件分岐
 
-- 条件に応じたJSXを返す
+- 条件に応じた JSX を返す
 - `&&`演算子を利用する
 - 三項演算子を利用する
 - 即時関数を利用する
 
-### 条件に応じたJSXを返す
+### 条件に応じた JSX を返す
 
 ```jsx
 function Hello({ isReact }) {
@@ -230,26 +232,25 @@ function App() {
 
 ## 繰り返し描画
 
-- mapを埋め込む
-- mapの実行結果が格納された変数を埋め込む
-- mapの実行結果を返す関数を埋め込む
+- map を埋め込む
+- map の実行結果が格納された変数を埋め込む
+- map の実行結果を返す関数を埋め込む
 
+### map を埋め込む
 
-### mapを埋め込む
-
-- key属性を指定することを強く推奨されている
+- key 属性を指定することを強く推奨されている
 
 ```jsx
 function App() {
   const books = [
-    { id: 1, title: 'React.js&Next.js超入門' },
-    { id: 2, title: 'React開発 現場の教科書' },
-    { id: 3, title: 'Reactビギナーズガイド' }
+    { id: 1, title: "React.js&Next.js超入門" },
+    { id: 2, title: "React開発 現場の教科書" },
+    { id: 3, title: "Reactビギナーズガイド" },
   ];
 
   return (
     <ul>
-      {books.map(book => (
+      {books.map((book) => (
         // key 属性は必ず指定する
         <li key={book.id}>{book.title}</li>
       ))}
@@ -258,16 +259,16 @@ function App() {
 }
 ```
 
-### mapの実行結果が格納された変数を埋め込む
+### map の実行結果が格納された変数を埋め込む
 
 ```jsx
 function App() {
   const books = [
-    { id: 1, title: 'React.js&Next.js超入門' },
-    { id: 2, title: 'React開発 現場の教科書' },
-    { id: 3, title: 'Reactビギナーズガイド' }
+    { id: 1, title: "React.js&Next.js超入門" },
+    { id: 2, title: "React開発 現場の教科書" },
+    { id: 3, title: "Reactビギナーズガイド" },
   ];
-  const listItems = books.map(book => <li key={book.id}>{book.title}</li>);
+  const listItems = books.map((book) => <li key={book.id}>{book.title}</li>);
   return (
     <div>
       <ul>{listItems}</ul>
@@ -276,17 +277,17 @@ function App() {
 }
 ```
 
-### mapの実行結果を返す関数を埋め込む
+### map の実行結果を返す関数を埋め込む
 
 ```jsx
 function App() {
   const books = [
-    { id: 1, title: '超入門' },
-    { id: 2, title: '開発 現場の教科書' },
-    { id: 3, title: 'ビギナーズガイド' }
+    { id: 1, title: "超入門" },
+    { id: 2, title: "開発 現場の教科書" },
+    { id: 3, title: "ビギナーズガイド" },
   ];
-  const listItems = library =>
-    books.map(book => (
+  const listItems = (library) =>
+    books.map((book) => (
       <li key={book.id}>
         {library}
         {book.title}
@@ -294,7 +295,118 @@ function App() {
     ));
   return (
     <div>
-      <ul>{listItems('Vue.js')}</ul>
+      <ul>{listItems("Vue.js")}</ul>
+    </div>
+  );
+}
+```
+
+---
+
+_2021/01/27_
+
+## イベントハンドリング
+
+- 属性はキャメルケース `onClick` で指定し、イベントハンドラは関数 `{handleClick}` を指定する必要がある。
+
+```jsx
+function App() {
+  function handleClick() {
+    console.log("clicked");
+  }
+
+  return <button onClick={handleClick}>click</button>;
+}
+```
+
+- 短く書く
+
+```jsx
+function App() {
+  return <button onClick={() => console.log("clicked")}>click</button>;
+}
+```
+
+### イベントハンドラに引数を渡す
+
+- イベントハンドラは関数を指定する（返す）必要がある
+- `onClick={handleClick("React")}`では動作しない
+
+```jsx
+function App() {
+  function handleClick(message) {
+    console.log(`Hello, ${message}`);
+  }
+
+  return <button onClick={() => handleClick("React")}>click</button>;
+}
+```
+
+- `handleClick("React")`は関数を返すので、OK
+
+```jsx
+function App() {
+  function handleClick(message) {
+    return () => console.log(`Hello, ${message}`);
+  }
+
+  return <button onClick={handleClick("React")}>click</button>;
+}
+```
+
+## Event オブジェクトを利用する
+
+- Event オブジェクトを取得し、リンク先への遷移をキャンセルする
+
+```jsx
+function App() {
+  function handleClick(event) {
+    event.preventDefault();
+    console.log("Hello, React");
+  }
+  return (
+    <a href="https://reactjs.org/" onClick={handleClick}>
+      React
+    </a>
+  );
+}
+```
+
+- 上記の引数追加版
+
+```jsx
+function App() {
+  function handleClick(event, message) {
+    event.preventDefault();
+    console.log(`Hello, ${message}`);
+  }
+  return (
+    <a href="https://reactjs.org/" onClick={(event) => handleClick(event, "React")}>
+      React
+    </a>
+  );
+}
+```
+
+## フック
+
+### useState
+
+- state と state を更新する関数を返すフック
+- `[カウンタ, セッター] = useState(初期値);` のように指定する
+- `setCount((prevCount) => prevCount + 1)` で prevCount に現在の count が入ってくる
+
+```jsx
+import React, { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>click</button>
+      <button onClick={() => setCount((prevCount) => prevCount + 1)}>click</button>
     </div>
   );
 }
