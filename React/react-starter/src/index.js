@@ -1,17 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MyHello from "./App";
+import MyArticle from "./MyArticle";
 
-const info = {
-  title: "1",
-  isbn: "WGS-JST-001",
-  price: 1000,
-  published: "WING",
-};
+const articles = [
+  {
+    url: "https://www.atmarkit.co.jp/ait/series/9383/",
+    title: "Angular TIPS",
+    description: "人気のJavaScriptフレームワーク「Angular」の目的別リファレンス",
+    isNew: true,
+  },
+  {
+    url: "https://www.atmarkit.co.jp/ait/series/9384/",
+    title: "Angular TIPS2",
+    description: "人気のJavaScriptフレームワーク「Angular」の目的別リファレンス2",
+    isNew: true,
+  },
+];
 
 ReactDOM.render(
-  <React.StrictMode>
-    <MyHello info={info}>今日は寒い。</MyHello>
-  </React.StrictMode>,
+  <dl>
+    {articles.map((article) => (
+      <MyArticle {...article} key={article.url}></MyArticle>
+    ))}
+  </dl>,
   document.getElementById("root")
 );
