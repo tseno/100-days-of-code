@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import MyHello from "./App";
 
 const info = {
-  title: "今日は寒い",
+  title: "1",
   isbn: "WGS-JST-001",
   price: 1000,
   published: "WING",
