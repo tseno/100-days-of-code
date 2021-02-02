@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MyForm from "./MyForm";
+import MyFile from "./MyFile";
 
-ReactDOM.render(<MyForm></MyForm>, document.getElementById("root"));
+ReactDOM.render(<MyFile></MyFile>, document.getElementById("root"));
