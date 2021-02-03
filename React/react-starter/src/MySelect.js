@@ -35,6 +35,7 @@ export default class MySelect extends Component {
         <button type="button" onClick={this.show}>
           送信
         </button>
+        <p>{this.props.match.params.id}</p>
       </form>
     );
   }
