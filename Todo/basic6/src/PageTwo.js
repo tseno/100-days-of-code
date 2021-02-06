@@ -6,6 +6,14 @@ export default class PageTwo extends Component {
     this.props.history.push("/");
   }
 
+  componentDidMount() {
+    alert("PageTwo created");
+  }
+
+  componentWillUnmount() {
+    alert("PageTwo destroyed");
+  }
+
   render() {
     return (
       <div>
