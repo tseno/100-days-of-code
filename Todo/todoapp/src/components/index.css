@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.toolbar-left {
+  width: 30%;
+  text-align: left;
+}
+
+.toolbar-center {
+  width: 40%;
+  text-align: center;
+}

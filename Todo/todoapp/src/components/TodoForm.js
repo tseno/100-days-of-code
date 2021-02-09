@@ -1,4 +1,15 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import AppBar from "@material-ui/core/AppBar";
+import ToolBar from "@material-ui/core/ToolBar";
+import Typography from "@material-ui/core/Typography";
+import ArrowBack from "@material-ui/icons/ArrowBack";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import "./TodoForm.css";
 
 export default class TodoForm extends Component {
   constructor(props) {
@@ -24,14 +35,32 @@ export default class TodoForm extends Component {
     this.setState({
       newTodo: "",
     });
+    this.props.history.push("/");
   }
 
   render() {
     return (
       <div>
-        <h3>My Todo</h3>
-        <input type="text" value={this.state.newTodo} onChange={this.handleChange.bind(this)} placeholder="Input here..." />
-        <button onClick={this.addTodo.bind(this)}>ADD</button>
+        <AppBar position="static">
+          <ToolBar>
+            <Link to="/" className="toolbar-left">
+              <ArrowBack style={{ color: "white" }}></ArrowBack>
+            </Link>
+            <Typography variant="h5" color="inherit" className="toolbar-center">
+              My Todo
+            </Typography>
+          </ToolBar>
+        </AppBar>
+        <Card>
+          <CardContent>
+            <TextField value={this.state.newTodo} onChange={this.handleChange.bind(this)} placeholder="Input here..." className="input-field"></TextField>
+          </CardContent>
+        </Card>
+        <CardActions>
+          <Button variant="contained" color="primary" onClick={this.addTodo.bind(this)}>
+            ADD
+          </Button>
+        </CardActions>
       </div>
     );
   }
