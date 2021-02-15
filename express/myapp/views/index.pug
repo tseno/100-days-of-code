@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  a(href="https://www.yahoo.co.jp" ) ヤフー
+  - array = ['zero', 'one', 'two', 'three']
+  ul
+    each val, index in array
+      li= index + ":" + val
+  
+  form(action="/postForm", method="post")
+  
+    input(type="text", name="yourName", placeholder="name")
+    br
+    input#male(type="radio",name="sex", value="male")
+    label(for="male") 男性
+    br
+    input#female(type="radio",name="sex", value="female")
+    label(for="female") 女性
+    br
+    input(type="text", name="tel", placeholder="TEL")
+    br
+    button(type="submit") ADD
+  
+  
+
+
+
+
